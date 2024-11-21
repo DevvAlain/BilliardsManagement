@@ -8,7 +8,7 @@ namespace Infrastructure.Configurations;
 
 public static class DIConfiguration
 {
-    public static void AddDependencyInjection(this IServiceCollection service)
+    public static void AddDependencyInjection(this IServiceCollection service)  
     {
         service.AddScoped<IRoleService, RoleService>();
         service.AddTransient<IUnitOfWork, UnitOfWork>();

@@ -1,3 +1,4 @@
+using Application.Mappings;
 using Application.Services.Implementations;
 using Application.Services.Interfaces;
 using Data.UnitOfWork.Implementations;
@@ -14,9 +15,9 @@ builder.Services.AddDbContext<BilliardsContext>(options => options.UseSqlServer(
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
 builder.Services.AddDependencyInjection();
-
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
