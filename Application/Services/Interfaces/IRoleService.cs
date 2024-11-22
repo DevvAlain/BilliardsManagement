@@ -14,5 +14,7 @@ namespace Application.Services.Interfaces
         Task<IActionResult> CreateRole(RoleCreateModel model);
 
         Task<IActionResult> UpdateRole(Guid id, RoleUpdateModel model);
+
+        Task<IActionResult> DeleteRole(Guid id);
     }
 }
