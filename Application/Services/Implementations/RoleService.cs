@@ -107,6 +107,21 @@ namespace Application.Services.Implementations
             var result = await _unitOfWork.SaveChangesAsync();
             return result > 0 ? GetRoleById(role.Id) : new BadRequestResult();
         }
+
+        public async Task<IActionResult> DeleteRole(Guid id)
+        {
+            var role = await _roleRepository.Where(x => x.Id.Equals(id)).FirstOrDefaultAsync();
+            if (role == null)
+            {
+                return new NotFoundResult();
+            }
+
+            _roleRepository.Delete(role);
+
+            var result = await _unitOfWork.SaveChangesAsync();
+            return result > 0 ? new OkResult() : new BadRequestResult();
+        }
+
         
     }
 }

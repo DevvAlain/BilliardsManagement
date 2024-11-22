@@ -45,5 +45,12 @@ namespace Presentation.Controllers
         {
             return await _roleService.UpdateRole(id, model);
         }
+
+            [HttpDelete]
+            [Route("{id}")]
+            public async Task<IActionResult> DeleteRole([FromRoute] Guid id)
+            {
+                return await _roleService.DeleteRole(id);
+            }
     }
 }

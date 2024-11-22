@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Entities;
 using Domain.Models.Creates;
+using Domain.Models.Deletes;
 using Domain.Models.Updates;
 using Domain.Models.Views;
 
@@ -22,5 +23,7 @@ public class MappingProfile : Profile
         CreateMap<RoleUpdateModel, Role>()
             .ForAllMembers(opts => opts.Condition((_, _, srcMember) => srcMember != null));
 
+        CreateMap<RoleDeleteModel, Role> ()
+            .ForAllMembers(opts => opts.Condition((_, _, srcMember) => srcMember != null));
     }
 }
